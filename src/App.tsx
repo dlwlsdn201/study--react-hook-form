@@ -15,7 +15,7 @@ export function App() {
   const {
     register,
     handleSubmit,
-    formState: { isSubmitting, errors },
+    formState: { isSubmitting, errors, isSubmitted },
   } = useForm<FormValues>({
     defaultValues: { email: "", password: "" },
   });
@@ -37,6 +37,9 @@ export function App() {
           id='email'
           type='email'
           placeholder='you@example.com'
+          aria-invalid={
+            isSubmitted ? (errors.email ? "true" : "false") : undefined
+          }
           className='styled-input'
           {...register("email", {
             required: "이메일은 필수 입력입니다.",
@@ -47,7 +50,9 @@ export function App() {
           })}
         />
         {errors.email && (
-          <small className='error'>{errors.email.message}</small>
+          <small role='alert' className='error'>
+            {errors.email.message}
+          </small>
         )}
         <label htmlFor='password'>비밀번호</label>
         <input
@@ -56,6 +61,9 @@ export function App() {
           placeholder='********'
           className='styled-input'
           autoComplete='current-password'
+          aria-invalid={
+            isSubmitted ? (errors.password ? "true" : "false") : undefined
+          }
           {...register("password", {
             required: "비밀번호는 필수 입력입니다.",
             minLength: {

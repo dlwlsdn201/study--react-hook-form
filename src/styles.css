@@ -18,9 +18,6 @@
 	cursor: not-allowed;
 }
 
-.error {
-	color: red;
-}
 
 form {
 	display: flex;

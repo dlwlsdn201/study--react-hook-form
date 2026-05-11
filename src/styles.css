@@ -1,0 +1,37 @@
+.styled-input {
+	display: block;
+	width: auto;
+	padding: 8px;
+}
+
+.styled-button {
+	background-color: #007bff;
+	color: white;
+	border: none;
+	padding: 1rem;
+	border-radius: 4px;
+	width: 100%;
+	cursor: pointer;
+}
+.styled-button:disabled {
+	background-color: #ccc;
+	cursor: not-allowed;
+}
+
+.error {
+	color: red;
+}
+
+form {
+	display: flex;
+	flex-flow: column nowrap;
+	gap: 1rem;
+}
+
+form label {
+	font-weight: bold;
+}
+
+form input {
+	width: 100%;
+}
